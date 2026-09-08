@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { apiRequest } from "@/lib/api";
+import Link from "next/link";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -64,6 +65,12 @@ export default function LoginPage() {
         >
           Login
         </button>
+        <p className="mt-4 text-center text-sm">
+          Don&apos;t have an account?{" "}
+          <Link href="/register" className="font-medium underline">
+            Register
+          </Link>
+        </p>
       </form>
     </main>
   );
