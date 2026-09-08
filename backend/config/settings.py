@@ -28,6 +28,11 @@ ALLOWED_HOSTS = [
     "note-app-kvru.onrender.com",
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "https://note-app-orcin-pi.vercel.app",
+]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -65,10 +70,6 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.IsAuthenticated",
     ),
 }
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
 
 ROOT_URLCONF = 'config.urls'
 
