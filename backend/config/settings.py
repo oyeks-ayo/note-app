@@ -15,10 +15,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-2tc2=kx4d0kh+&))frle6l(o3fan*i4#7+**cndi(=q@iplkd+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = []
+SECRET_KEY = os.getenv("SECRET_KEY")
 
+if os.getenv("IS_DEVELOPMENT"):
+    DEBUG = True
+else:
+    DEBUG = False
+
+ALLOWED_HOSTS = [
+    "note-app-kvru.onrender.com",
+]
 
 # Application definition
 
