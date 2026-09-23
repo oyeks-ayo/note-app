@@ -22,7 +22,18 @@ export async function apiRequest(endpoint: string, options: RequestInit = {}) {
 
     try {
       const data = await response.json();
-      errorMessage = data.detail || errorMessage;
+      if (typeof data.detail === "string") {
+        errorMessage = data.detail;
+      } else if (data && typeof data === "object") {
+        errorMessage = Object.entries(data)
+          .map(([field, messages]) => {
+            const details = Array.isArray(messages)
+              ? messages.join(" ")
+              : String(messages);
+            return `${field}: ${details}`;
+          })
+          .join(" ");
+      }
     } catch {
       // Response has no JSON body
     }
