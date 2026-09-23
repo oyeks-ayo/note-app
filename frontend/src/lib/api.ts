@@ -1,6 +1,14 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000/api";
+const API_URL =
+  process.env.NEXT_PUBLIC_API_URL ||
+  (process.env.NODE_ENV === "development"
+    ? "http://127.0.0.1:8000/api"
+    : "");
 
 export async function apiRequest(endpoint: string, options: RequestInit = {}) {
+  if (!API_URL) {
+    throw new Error("NEXT_PUBLIC_API_URL is not configured.");
+  }
+
   const response = await fetch(`${API_URL}${endpoint}`, {
     ...options,
     headers: {
