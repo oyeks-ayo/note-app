@@ -87,3 +87,9 @@ CORS_ALLOWED_ORIGINS = [
     for origin in os.getenv("CORS_ALLOWED_ORIGINS", "").split(",")
     if origin.strip()
 ]
+
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    pattern.strip()
+    for pattern in os.getenv("CORS_ALLOWED_ORIGIN_REGEXES", "").split(",")
+    if pattern.strip()
+]
