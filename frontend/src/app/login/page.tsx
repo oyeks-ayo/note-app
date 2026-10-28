@@ -45,6 +45,7 @@ export default function LoginPage() {
         {error && <p className="text-red-500">{error}</p>}
 
         <input
+          id="username"
           className="w-full rounded border p-2"
           placeholder="Username"
           value={username}
@@ -52,6 +53,7 @@ export default function LoginPage() {
         />
 
         <input
+          id="password"
           className="w-full rounded border p-2"
           type="password"
           placeholder="Password"
