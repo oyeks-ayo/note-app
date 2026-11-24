@@ -20,7 +20,7 @@ export default function LoginPage() {
       const data = await apiRequest("/auth/login/", {
         method: "POST",
         body: JSON.stringify({
-          username,
+          username: username.trim(),
           password,
         }),
       });
@@ -47,7 +47,9 @@ export default function LoginPage() {
         <input
           id="username"
           className="w-full rounded border p-2"
-          placeholder="Username"
+          placeholder="Username or email"
+          autoCapitalize="none"
+          autoCorrect="off"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />

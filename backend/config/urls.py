@@ -4,6 +4,7 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+from users.views import LoginView
 
 
 urlpatterns = [
@@ -13,9 +14,9 @@ urlpatterns = [
 
     path(
         "api/auth/login/",
-        TokenObtainPairView.as_view(),
+        LoginView.as_view(),
         name="token_obtain_pair",
-    ),
+),
 
     path(
         "api/auth/refresh/",
@@ -27,4 +28,5 @@ urlpatterns = [
         "api/",
         include("notes.urls"),
     ),
+    
 ]

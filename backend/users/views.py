@@ -5,8 +5,11 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.exceptions import TokenError
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from .serializers import RegisterSerializer
+from rest_framework_simplejwt.views import TokenObtainPairView
+from .serializers import LoginSerializer, RegisterSerializer
 
+class LoginView(TokenObtainPairView):
+    serializer_class = LoginSerializer
 
 class RegisterView(generics.CreateAPIView):
     serializer_class = RegisterSerializer
